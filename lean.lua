@@ -6,7 +6,7 @@ local commentend = lpeg.P([[-/]])
 
 function HandleComment(prefix,raw)
     local dialect = "commonmark"
-    if prefix ~= nil then dialect = prefix end
+    if prefix ~= "" then dialect = prefix end
     return table.unpack(pandoc.read(raw,dialect).blocks)
 end
 
