@@ -1,3 +1,5 @@
+lpeg = require("lpeg")
+
 local nonwhitespace = (1 - lpeg.S("\n\r\t "))^0
 
 local commentstart = lpeg.P([[/-]])
@@ -18,5 +20,5 @@ local G = lpeg.P{
 }
 
 function Reader(input)
-    return lpeg.match(G,tostring(input))
+    return lpeg.match(G, tostring(input))
 end
