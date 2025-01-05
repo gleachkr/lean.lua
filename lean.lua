@@ -13,7 +13,7 @@ end
 
 function HandleCode(raw)
     if raw:find("^[%s%c]+$") then return nil end
-    return pandoc.CodeBlock(raw)
+    return pandoc.CodeBlock(raw, {class = "lean"})
 end
 
 local theGrammar = {
