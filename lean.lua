@@ -6,15 +6,9 @@ local commentstart = lpeg.P([[/-]])
 
 local commentend = lpeg.P([[-/]])
 
-local ignorePrefix = {
-    ["!"] = true,
-    ["-"] = true,
-    [""] = true
-}
-
 function HandleComment(prefix, raw)
-    if ignorePrefix[prefix] then prefix = "commonmark" end
-    return table.unpack(pandoc.read(raw, prefix).blocks)
+    local flavor = prefix:match("^|(.*)") or "commonmark"
+    return table.unpack(pandoc.read(raw, flavor).blocks)
 end
 
 function HandleCode(raw)
