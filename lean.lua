@@ -13,7 +13,16 @@ end
 
 function HandleCode(raw)
     if raw:find("^[%s%c]+$") then return nil end
-    return pandoc.CodeBlock(raw, {class = "lean"})
+    -- If the block ends with "-/\n" or -/  \n", we strip that whitespace
+    --
+    -- Whitespace is otherwise preserved
+    --
+    local stripped = raw:match("^[ \t]*\n(.*)$")
+    if stripped then
+        return pandoc.CodeBlock(stripped, {class = "lean"})
+    else
+        return pandoc.CodeBlock(raw, {class = "lean"})
+    end
 end
 
 local theGrammar = {
