@@ -6,7 +6,8 @@ document conversion tool to transform your Lean files into markdown, PDF, or
 whatever format you like.
 
 To install, copy `lean.lua` to `$DATADIR/readers` (for information about
-pandoc's data directory, see [the pandoc manual](https://pandoc.org/MANUAL.html#option--data-dir)
+pandoc's data directory, see [the pandoc
+manual](https://pandoc.org/MANUAL.html#option--data-dir)).
 
 To use, intone: `pandoc -f lean.lua $TARGET`. Comment blocks[^1] will be parsed
 as [commonmark](https://commonmark.org), and Lean code will be converted to
