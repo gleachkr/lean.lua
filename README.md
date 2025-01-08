@@ -1,6 +1,10 @@
 # Lean.lua
 
-This is a minimal pandoc reader for [Lean](https://leanprover.github.io/).
+This is a minimal [pandoc](https://pandoc.org) reader for
+[Lean](https://leanprover.github.io/). It lets you use the world's best
+document conversion tool to transform your Lean files into markdown, PDF, or
+whatever format you like. Comments in the Lean file become body text, and
+everything else becomes code-blocks in the resulting document.
 
 To install, copy `lean.lua` to `$DATADIR/readers` (for information about
 pandoc's data directory, see [the pandoc manual](https://pandoc.org/MANUAL.html#option--data-dir)
@@ -16,10 +20,11 @@ opening a comment block - the `!` and `-` are not part of the block.
 
 ## Other Features
 
-If you want to use an input format other than commonmark—latex, for example—
-open your comment block with `/-|latex`. Any input format accepted by pandoc
-can be used. A complete list of input formats can be found in the pandoc
-manual, [here](https://pandoc.org/MANUAL.html#general-options).
+If you want to use an input format other than commonmark—LaTeX, for
+example—open your comment block with `/-|latex` (or replace `latex` with your
+format of choice). Any input format accepted by pandoc can be used. A complete
+list of input formats can be found in the pandoc manual,
+[here](https://pandoc.org/MANUAL.html#general-options).
 
 ## Templates
 
