@@ -59,3 +59,4 @@ Some other approaches to transforming Lean code into documents include:
 1. [verso](https://github.com/leanprover/verso)
 2. [lean2md](https://github.com/arthurpaulino/lean2md)
 3. [leanink](https://github.com/leanprover/LeanInk)
+4. [lean-slides](https://github.com/0art0/lean-slides)
