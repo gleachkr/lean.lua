@@ -1,12 +1,12 @@
 # Lean.lua
 
-This is a minimal pandoc reader for [lean](https://leanprover.github.io/).
+This is a minimal pandoc reader for [Lean](https://leanprover.github.io/).
 
 To install, copy `lean.lua` to `$DATADIR/readers` (for information about
 pandoc's data directory, see [the pandoc manual](https://pandoc.org/MANUAL.html#option--data-dir)
 
 To use, intone: `pandoc -f lean.lua $TARGET`. Comment blocks[^1] will be parsed
-as [commonmark](https://commonmark.org), and lean code will be converted to
+as [commonmark](https://commonmark.org), and Lean code will be converted to
 code blocks. You should be able to use all standard pandoc output formats, so
 conversion from here to PDF or other formats ought to be simple.
 
@@ -21,9 +21,35 @@ open your comment block with `/-|latex`. Any input format accepted by pandoc
 can be used. A complete list of input formats can be found in the pandoc
 manual, [here](https://pandoc.org/MANUAL.html#general-options).
 
+## Templates
+
+The repository includes two templates, `./templates/lean.html` and
+`./templates/lean.latex`. These are essentially just the default pandoc
+templates for standalone HTML and LaTeX documents respectively. But I've added
+support for Lean syntax highlighting, just to give an example of how you can do
+this. The HTML syntax highlighting is via
+[highlightjs-lean](https://github.com/leanprover-community/highlightjs-lean),
+and the LaTeX highlighting is provided by Jeremy Avigad's
+[lstlean.tex](https://raw.githubusercontent.com/leanprover/lean4/master/doc/latex/lstlean.tex).
+
+To generate an HTML file with the HTML template:
+
+``` 
+$ pandoc -f lean.lua MYFILE.lean --template ./templates/lean.html -o MYFILE.html
+```
+
+To generate a PDF with the LaTeX template:
+
+``` 
+$ pandoc -f lean.lua MYFILE.lean --template ./templates/lean.latex --listings -o MYFILE.pdf 
+```
+
+If your file includes non-ASCII characters, you may also want `--pdf-engine
+lualatex`, or something similar.
+
 ## Alternatives
 
-Some other approaches to transforming lean code into documents include:
+Some other approaches to transforming Lean code into documents include:
 
 1. [verso](https://github.com/leanprover/verso)
 2. [lean2md](https://github.com/arthurpaulino/lean2md)
