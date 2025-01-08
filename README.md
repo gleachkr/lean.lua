@@ -3,8 +3,7 @@
 This is a minimal [pandoc](https://pandoc.org) reader for
 [Lean](https://leanprover.github.io/). It lets you use the world's best
 document conversion tool to transform your Lean files into markdown, PDF, or
-whatever format you like. Comments in the Lean file become body text, and
-everything else becomes code-blocks in the resulting document.
+whatever format you like.
 
 To install, copy `lean.lua` to `$DATADIR/readers` (for information about
 pandoc's data directory, see [the pandoc manual](https://pandoc.org/MANUAL.html#option--data-dir)
